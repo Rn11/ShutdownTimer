@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.grpInput = new System.Windows.Forms.GroupBox();
-            this.lblHours = new System.Windows.Forms.Label();
-            this.lblMinues = new System.Windows.Forms.Label();
-            this.lblSeconds = new System.Windows.Forms.Label();
-            this.txtHours = new System.Windows.Forms.TextBox();
-            this.txtMinutes = new System.Windows.Forms.TextBox();
             this.txtSeconds = new System.Windows.Forms.TextBox();
+            this.txtMinutes = new System.Windows.Forms.TextBox();
+            this.txtHours = new System.Windows.Forms.TextBox();
+            this.lblSeconds = new System.Windows.Forms.Label();
+            this.lblMinues = new System.Windows.Forms.Label();
+            this.lblHours = new System.Windows.Forms.Label();
             this.btnShutdownTimed = new System.Windows.Forms.Button();
             this.btnShutdownInstant = new System.Windows.Forms.Button();
             this.btnShutdownAbort = new System.Windows.Forms.Button();
@@ -67,41 +67,14 @@
             this.grpInput.TabStop = false;
             this.grpInput.Text = "Zeiteingabe";
             // 
-            // lblHours
+            // txtSeconds
             // 
-            this.lblHours.AutoSize = true;
-            this.lblHours.Location = new System.Drawing.Point(6, 16);
-            this.lblHours.Name = "lblHours";
-            this.lblHours.Size = new System.Drawing.Size(50, 13);
-            this.lblHours.TabIndex = 0;
-            this.lblHours.Text = "Stunden:";
-            // 
-            // lblMinues
-            // 
-            this.lblMinues.AutoSize = true;
-            this.lblMinues.Location = new System.Drawing.Point(6, 42);
-            this.lblMinues.Name = "lblMinues";
-            this.lblMinues.Size = new System.Drawing.Size(48, 13);
-            this.lblMinues.TabIndex = 1;
-            this.lblMinues.Text = "Minuten:";
-            // 
-            // lblSeconds
-            // 
-            this.lblSeconds.AutoSize = true;
-            this.lblSeconds.Location = new System.Drawing.Point(6, 68);
-            this.lblSeconds.Name = "lblSeconds";
-            this.lblSeconds.Size = new System.Drawing.Size(59, 13);
-            this.lblSeconds.TabIndex = 2;
-            this.lblSeconds.Text = "Sekunden:";
-            // 
-            // txtHours
-            // 
-            this.txtHours.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtSeconds.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtHours.Location = new System.Drawing.Point(71, 13);
-            this.txtHours.Name = "txtHours";
-            this.txtHours.Size = new System.Drawing.Size(48, 20);
-            this.txtHours.TabIndex = 3;
+            this.txtSeconds.Location = new System.Drawing.Point(71, 65);
+            this.txtSeconds.Name = "txtSeconds";
+            this.txtSeconds.Size = new System.Drawing.Size(48, 20);
+            this.txtSeconds.TabIndex = 5;
             // 
             // txtMinutes
             // 
@@ -112,14 +85,41 @@
             this.txtMinutes.Size = new System.Drawing.Size(48, 20);
             this.txtMinutes.TabIndex = 4;
             // 
-            // txtSeconds
+            // txtHours
             // 
-            this.txtSeconds.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtHours.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSeconds.Location = new System.Drawing.Point(71, 65);
-            this.txtSeconds.Name = "txtSeconds";
-            this.txtSeconds.Size = new System.Drawing.Size(48, 20);
-            this.txtSeconds.TabIndex = 5;
+            this.txtHours.Location = new System.Drawing.Point(71, 13);
+            this.txtHours.Name = "txtHours";
+            this.txtHours.Size = new System.Drawing.Size(48, 20);
+            this.txtHours.TabIndex = 3;
+            // 
+            // lblSeconds
+            // 
+            this.lblSeconds.AutoSize = true;
+            this.lblSeconds.Location = new System.Drawing.Point(6, 68);
+            this.lblSeconds.Name = "lblSeconds";
+            this.lblSeconds.Size = new System.Drawing.Size(59, 13);
+            this.lblSeconds.TabIndex = 2;
+            this.lblSeconds.Text = "Sekunden:";
+            // 
+            // lblMinues
+            // 
+            this.lblMinues.AutoSize = true;
+            this.lblMinues.Location = new System.Drawing.Point(6, 42);
+            this.lblMinues.Name = "lblMinues";
+            this.lblMinues.Size = new System.Drawing.Size(48, 13);
+            this.lblMinues.TabIndex = 1;
+            this.lblMinues.Text = "Minuten:";
+            // 
+            // lblHours
+            // 
+            this.lblHours.AutoSize = true;
+            this.lblHours.Location = new System.Drawing.Point(6, 16);
+            this.lblHours.Name = "lblHours";
+            this.lblHours.Size = new System.Drawing.Size(50, 13);
+            this.lblHours.TabIndex = 0;
+            this.lblHours.Text = "Stunden:";
             // 
             // btnShutdownTimed
             // 
@@ -131,6 +131,7 @@
             this.btnShutdownTimed.TabIndex = 1;
             this.btnShutdownTimed.Text = "Herunterfahren (Zeiteingabe)";
             this.btnShutdownTimed.UseVisualStyleBackColor = true;
+            this.btnShutdownTimed.Click += new System.EventHandler(this.btnShutdownTimed_Click);
             // 
             // btnShutdownInstant
             // 
@@ -142,39 +143,43 @@
             this.btnShutdownInstant.TabIndex = 3;
             this.btnShutdownInstant.Text = "Herunterfahren";
             this.btnShutdownInstant.UseVisualStyleBackColor = true;
+            this.btnShutdownInstant.Click += new System.EventHandler(this.btnShutdownInstant_Click);
             // 
             // btnShutdownAbort
             // 
             this.btnShutdownAbort.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnShutdownAbort.Location = new System.Drawing.Point(0, 234);
+            this.btnShutdownAbort.Location = new System.Drawing.Point(0, 138);
             this.btnShutdownAbort.Name = "btnShutdownAbort";
             this.btnShutdownAbort.Size = new System.Drawing.Size(210, 26);
             this.btnShutdownAbort.TabIndex = 2;
-            this.btnShutdownAbort.Text = "Herunterfahren abrrechen";
+            this.btnShutdownAbort.Text = "Herunterfahren abbrechen";
             this.btnShutdownAbort.UseVisualStyleBackColor = true;
+            this.btnShutdownAbort.Click += new System.EventHandler(this.btnShutdownAbort_Click);
             // 
             // btnHibernate
             // 
             this.btnHibernate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnHibernate.Location = new System.Drawing.Point(0, 298);
+            this.btnHibernate.Location = new System.Drawing.Point(0, 234);
             this.btnHibernate.Name = "btnHibernate";
             this.btnHibernate.Size = new System.Drawing.Size(210, 26);
             this.btnHibernate.TabIndex = 4;
             this.btnHibernate.Text = "Ruhezustand";
             this.btnHibernate.UseVisualStyleBackColor = true;
+            this.btnHibernate.Click += new System.EventHandler(this.btnHibernate_Click);
             // 
             // btnStandby
             // 
             this.btnStandby.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnStandby.Location = new System.Drawing.Point(0, 330);
+            this.btnStandby.Location = new System.Drawing.Point(0, 202);
             this.btnStandby.Name = "btnStandby";
             this.btnStandby.Size = new System.Drawing.Size(210, 26);
             this.btnStandby.TabIndex = 5;
             this.btnStandby.Text = "Energiesparmodus";
             this.btnStandby.UseVisualStyleBackColor = true;
+            this.btnStandby.Click += new System.EventHandler(this.btnStandby_Click);
             // 
             // btnRestart
             // 
@@ -186,28 +191,31 @@
             this.btnRestart.TabIndex = 6;
             this.btnRestart.Text = "Neustart";
             this.btnRestart.UseVisualStyleBackColor = true;
+            this.btnRestart.Click += new System.EventHandler(this.btnRestart_Click);
             // 
             // btnLogoff
             // 
             this.btnLogoff.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLogoff.Location = new System.Drawing.Point(0, 202);
+            this.btnLogoff.Location = new System.Drawing.Point(0, 298);
             this.btnLogoff.Name = "btnLogoff";
             this.btnLogoff.Size = new System.Drawing.Size(210, 26);
             this.btnLogoff.TabIndex = 7;
             this.btnLogoff.Text = "Abmelden";
             this.btnLogoff.UseVisualStyleBackColor = true;
+            this.btnLogoff.Click += new System.EventHandler(this.btnLogoff_Click);
             // 
             // btnLock
             // 
             this.btnLock.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLock.Location = new System.Drawing.Point(0, 138);
+            this.btnLock.Location = new System.Drawing.Point(0, 330);
             this.btnLock.Name = "btnLock";
             this.btnLock.Size = new System.Drawing.Size(210, 26);
             this.btnLock.TabIndex = 8;
             this.btnLock.Text = "Sperren";
             this.btnLock.UseVisualStyleBackColor = true;
+            this.btnLock.Click += new System.EventHandler(this.btnLock_Click);
             // 
             // btnExit
             // 
@@ -219,6 +227,7 @@
             this.btnExit.TabIndex = 9;
             this.btnExit.Text = "Beenden";
             this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // panel1
             // 
@@ -238,14 +247,14 @@
             this.panel1.Controls.Add(this.btnStandby);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(213, 391);
+            this.panel1.Size = new System.Drawing.Size(213, 392);
             this.panel1.TabIndex = 10;
             // 
             // FShutdownTimer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(234, 408);
+            this.ClientSize = new System.Drawing.Size(234, 409);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FShutdownTimer";
