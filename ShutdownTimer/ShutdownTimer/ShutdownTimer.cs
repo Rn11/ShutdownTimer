@@ -56,6 +56,7 @@ namespace ShutdownTimer
 
         private void btnShutdownTimed_Click(object sender, EventArgs e)
         {
+            // ---- deprecated - not in use -----
             try
             {
                 startProcess("shutdown", "/s /t " + convertTime(txtHours.Text, txtMinutes.Text, txtSeconds.Text));
@@ -73,7 +74,37 @@ namespace ShutdownTimer
 
         private void btnShutdownInstant_Click(object sender, EventArgs e)
         {
-            startProcess("shutdown", "/s /f");
+
+            try
+            {
+                if (chkTimed.Checked)
+                {
+                    if (chkForce.Checked)
+                    {
+                        startProcess("shutdown", "/s /f /t " + convertTime(txtHours.Text, txtMinutes.Text, txtSeconds.Text));
+                    }
+                    else if (!chkForce.Checked)
+                    {
+                        startProcess("shutdown", "/s /t " + convertTime(txtHours.Text, txtMinutes.Text, txtSeconds.Text));
+                    }
+                }
+
+                else if (!chkTimed.Checked)
+                {
+                    if (chkForce.Checked)
+                    {
+                        startProcess("shutdown", "/s /f");
+                    }
+                    else if (!chkForce.Checked)
+                    {
+                        startProcess("shutdown", "/s");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Kritischer Fehler: " + ex.Message);
+            }
         }
 
         private void btnHibernate_Click(object sender, EventArgs e)
@@ -110,6 +141,18 @@ namespace ShutdownTimer
         {
             //This option reopens all active applications (beta)
             startProcess("shutdown", "/g");
+        }
+
+        private void chkTimed_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkTimed.Checked)
+            {
+                grpInput.Enabled = true;
+            }
+            else
+            {
+                grpInput.Enabled = false;
+            }
         }
     }
 }
