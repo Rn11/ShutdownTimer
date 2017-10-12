@@ -45,6 +45,7 @@
             this.btnLock = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnSoftRestart = new System.Windows.Forms.Button();
             this.grpInput.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -197,7 +198,7 @@
             // 
             this.btnLogoff.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLogoff.Location = new System.Drawing.Point(0, 298);
+            this.btnLogoff.Location = new System.Drawing.Point(0, 330);
             this.btnLogoff.Name = "btnLogoff";
             this.btnLogoff.Size = new System.Drawing.Size(210, 26);
             this.btnLogoff.TabIndex = 7;
@@ -209,7 +210,7 @@
             // 
             this.btnLock.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLock.Location = new System.Drawing.Point(0, 330);
+            this.btnLock.Location = new System.Drawing.Point(0, 362);
             this.btnLock.Name = "btnLock";
             this.btnLock.Size = new System.Drawing.Size(210, 26);
             this.btnLock.TabIndex = 8;
@@ -221,7 +222,7 @@
             // 
             this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExit.Location = new System.Drawing.Point(0, 362);
+            this.btnExit.Location = new System.Drawing.Point(0, 394);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(210, 26);
             this.btnExit.TabIndex = 9;
@@ -235,6 +236,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel1.Controls.Add(this.btnSoftRestart);
             this.panel1.Controls.Add(this.grpInput);
             this.panel1.Controls.Add(this.btnExit);
             this.panel1.Controls.Add(this.btnShutdownTimed);
@@ -247,14 +249,26 @@
             this.panel1.Controls.Add(this.btnStandby);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(213, 392);
+            this.panel1.Size = new System.Drawing.Size(213, 457);
             this.panel1.TabIndex = 10;
+            // 
+            // btnSoftRestart
+            // 
+            this.btnSoftRestart.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSoftRestart.Location = new System.Drawing.Point(0, 298);
+            this.btnSoftRestart.Name = "btnSoftRestart";
+            this.btnSoftRestart.Size = new System.Drawing.Size(210, 26);
+            this.btnSoftRestart.TabIndex = 10;
+            this.btnSoftRestart.Text = "Neustart && Sitzung wiederherstellen";
+            this.btnSoftRestart.UseVisualStyleBackColor = true;
+            this.btnSoftRestart.Click += new System.EventHandler(this.btnSoftRestart_Click);
             // 
             // FShutdownTimer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(234, 409);
+            this.ClientSize = new System.Drawing.Size(234, 474);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FShutdownTimer";
@@ -285,6 +299,7 @@
         private System.Windows.Forms.Button btnLock;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnSoftRestart;
     }
 }
 

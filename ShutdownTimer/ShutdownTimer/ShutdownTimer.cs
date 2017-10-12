@@ -27,16 +27,43 @@ namespace ShutdownTimer
             Process.Start(info);
         }
 
-        private int convertTime(string hours, string minutes, string seconds)
+        private string convertTime(string hours, string minutes, string seconds)
         {
             int time = 0;
-            time = (Convert.ToInt32(seconds) + (Convert.ToInt32(minutes) * 60) + (Convert.ToInt32(hours) * 3600));
-            return time;
+            try
+            {
+                if (hours != "")
+                {
+                    time += Convert.ToInt32(hours) * 3600;
+                }
+
+                if (minutes != "")
+                {
+                    time += (Convert.ToInt32(minutes) * 60);
+                }
+
+                if (seconds != "")
+                {
+                    time += Convert.ToInt32(seconds);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Kritischer Fehler: " + ex.Message);
+            }
+            return Convert.ToString(time);
         }
 
         private void btnShutdownTimed_Click(object sender, EventArgs e)
         {
-            startProcess("shutdown", "/s /t " + convertTime(txtHours.Text, txtMinutes.Text, txtSeconds.Text).ToString());
+            try
+            {
+                startProcess("shutdown", "/s /t " + convertTime(txtHours.Text, txtMinutes.Text, txtSeconds.Text));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Kritischer Fehler: " + ex.Message);
+            }
         }
 
         private void btnShutdownAbort_Click(object sender, EventArgs e)
@@ -61,7 +88,7 @@ namespace ShutdownTimer
 
         private void btnRestart_Click(object sender, EventArgs e)
         {
-
+            startProcess("shutdown", "/r");
         }
 
         private void btnLogoff_Click(object sender, EventArgs e)
@@ -76,7 +103,13 @@ namespace ShutdownTimer
 
         private void btnExit_Click(object sender, EventArgs e)
         {
+            this.Close();
+        }
 
+        private void btnSoftRestart_Click(object sender, EventArgs e)
+        {
+            //This option reopens all active applications (beta)
+            startProcess("shutdown", "/g");
         }
     }
 }
