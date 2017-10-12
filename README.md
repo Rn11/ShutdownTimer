@@ -1,2 +1,2 @@
 # ShutdownTimer
-Simple custom shutdown timers
+Simple custom shutdown timer
