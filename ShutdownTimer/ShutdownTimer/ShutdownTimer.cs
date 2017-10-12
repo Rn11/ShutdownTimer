@@ -5,6 +5,7 @@ using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,6 +18,7 @@ namespace ShutdownTimer
         public FShutdownTimer()
         {
             InitializeComponent();
+            lblVersionValue.Text = Assembly.GetExecutingAssembly().GetName().Version.ToString();
         }
 
         private void startProcess(string action, string args)
@@ -72,9 +74,8 @@ namespace ShutdownTimer
             startProcess("shutdown", "/a");
         }
 
-        private void btnShutdownInstant_Click(object sender, EventArgs e)
+        private void btnShutdown_Click(object sender, EventArgs e)
         {
-
             try
             {
                 if (chkTimed.Checked)
@@ -82,10 +83,12 @@ namespace ShutdownTimer
                     if (chkForce.Checked)
                     {
                         startProcess("shutdown", "/s /f /t " + convertTime(txtHours.Text, txtMinutes.Text, txtSeconds.Text));
+                        initProgressBar(Convert.ToInt32(convertTime(txtHours.Text, txtMinutes.Text, txtSeconds.Text)));
                     }
                     else if (!chkForce.Checked)
                     {
                         startProcess("shutdown", "/s /t " + convertTime(txtHours.Text, txtMinutes.Text, txtSeconds.Text));
+                        initProgressBar(Convert.ToInt32(convertTime(txtHours.Text, txtMinutes.Text, txtSeconds.Text)));
                     }
                 }
 
@@ -155,6 +158,30 @@ namespace ShutdownTimer
             }
         }
 
- 
+        private void initProgressBar(int seconds)
+        {
+            prgTime.Maximum = seconds;
+            prgTime.Step = 1;
+            startTimer();
+        }
+
+        private void startTimer()
+        {
+            timerUntilAction.Enabled = true;
+            timerUntilAction.Start(); 
+            timerUntilAction.Interval = 1000;
+        }
+
+        private void timerUntilAction_Tick(object sender, EventArgs e)
+        {
+            if (prgTime.Value <= prgTime.Maximum)
+            {
+                prgTime.Value++;
+            }
+            else
+            {
+                timerUntilAction.Stop();
+            }
+        }
     }
 }

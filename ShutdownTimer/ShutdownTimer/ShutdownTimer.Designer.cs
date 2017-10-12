@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.grpInput = new System.Windows.Forms.GroupBox();
             this.txtSeconds = new System.Windows.Forms.TextBox();
             this.txtMinutes = new System.Windows.Forms.TextBox();
@@ -53,11 +54,12 @@
             this.grpLock = new System.Windows.Forms.GroupBox();
             this.chkTimed = new System.Windows.Forms.CheckBox();
             this.chkForce = new System.Windows.Forms.CheckBox();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.prgTime = new System.Windows.Forms.ProgressBar();
             this.lblTimeLeftDescription = new System.Windows.Forms.Label();
             this.lblTimeLeftValue = new System.Windows.Forms.Label();
             this.lblVersionDescription = new System.Windows.Forms.Label();
             this.lblVersionValue = new System.Windows.Forms.Label();
+            this.timerUntilAction = new System.Windows.Forms.Timer(this.components);
             this.grpInput.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -152,7 +154,7 @@
             this.btnShutdown.TabIndex = 3;
             this.btnShutdown.Text = "Herunterfahren";
             this.btnShutdown.UseVisualStyleBackColor = true;
-            this.btnShutdown.Click += new System.EventHandler(this.btnShutdownInstant_Click);
+            this.btnShutdown.Click += new System.EventHandler(this.btnShutdown_Click);
             // 
             // btnShutdownAbort
             // 
@@ -240,7 +242,7 @@
             // 
             this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel1.Controls.Add(this.grpInput);
-            this.panel1.Location = new System.Drawing.Point(218, 58);
+            this.panel1.Location = new System.Drawing.Point(211, 77);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(162, 103);
             this.panel1.TabIndex = 10;
@@ -306,7 +308,7 @@
             // panel5
             // 
             this.panel5.Controls.Add(this.grpLock);
-            this.panel5.Location = new System.Drawing.Point(218, 167);
+            this.panel5.Location = new System.Drawing.Point(211, 186);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(162, 92);
             this.panel5.TabIndex = 14;
@@ -328,7 +330,7 @@
             // chkTimed
             // 
             this.chkTimed.AutoSize = true;
-            this.chkTimed.Location = new System.Drawing.Point(218, 12);
+            this.chkTimed.Location = new System.Drawing.Point(211, 49);
             this.chkTimed.Name = "chkTimed";
             this.chkTimed.Size = new System.Drawing.Size(88, 17);
             this.chkTimed.TabIndex = 15;
@@ -339,19 +341,19 @@
             // chkForce
             // 
             this.chkForce.AutoSize = true;
-            this.chkForce.Location = new System.Drawing.Point(218, 35);
+            this.chkForce.Location = new System.Drawing.Point(211, 26);
             this.chkForce.Name = "chkForce";
             this.chkForce.Size = new System.Drawing.Size(148, 17);
             this.chkForce.TabIndex = 16;
             this.chkForce.Text = "Herunterfahren erzwingen";
             this.chkForce.UseVisualStyleBackColor = true;
             // 
-            // progressBar1
+            // prgTime
             // 
-            this.progressBar1.Location = new System.Drawing.Point(12, 311);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(365, 23);
-            this.progressBar1.TabIndex = 17;
+            this.prgTime.Location = new System.Drawing.Point(12, 311);
+            this.prgTime.Name = "prgTime";
+            this.prgTime.Size = new System.Drawing.Size(365, 23);
+            this.prgTime.TabIndex = 17;
             // 
             // lblTimeLeftDescription
             // 
@@ -370,6 +372,7 @@
             this.lblTimeLeftValue.Size = new System.Drawing.Size(23, 13);
             this.lblTimeLeftValue.TabIndex = 19;
             this.lblTimeLeftValue.Text = "null";
+            this.lblTimeLeftValue.Visible = false;
             // 
             // lblVersionDescription
             // 
@@ -385,22 +388,27 @@
             // 
             this.lblVersionValue.AutoSize = true;
             this.lblVersionValue.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.lblVersionValue.Location = new System.Drawing.Point(64, 346);
+            this.lblVersionValue.Location = new System.Drawing.Point(55, 346);
             this.lblVersionValue.Name = "lblVersionValue";
             this.lblVersionValue.Size = new System.Drawing.Size(31, 13);
             this.lblVersionValue.TabIndex = 21;
             this.lblVersionValue.Text = "0.0.0";
             // 
+            // timerUntilAction
+            // 
+            this.timerUntilAction.Interval = 1000;
+            this.timerUntilAction.Tick += new System.EventHandler(this.timerUntilAction_Tick);
+            // 
             // FShutdownTimer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(383, 377);
+            this.ClientSize = new System.Drawing.Size(390, 377);
             this.Controls.Add(this.lblVersionValue);
             this.Controls.Add(this.lblVersionDescription);
             this.Controls.Add(this.lblTimeLeftValue);
             this.Controls.Add(this.lblTimeLeftDescription);
-            this.Controls.Add(this.progressBar1);
+            this.Controls.Add(this.prgTime);
             this.Controls.Add(this.chkForce);
             this.Controls.Add(this.chkTimed);
             this.Controls.Add(this.panel5);
@@ -452,11 +460,12 @@
         private System.Windows.Forms.GroupBox grpLock;
         private System.Windows.Forms.CheckBox chkTimed;
         private System.Windows.Forms.CheckBox chkForce;
-        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.ProgressBar prgTime;
         private System.Windows.Forms.Label lblTimeLeftDescription;
         private System.Windows.Forms.Label lblTimeLeftValue;
         private System.Windows.Forms.Label lblVersionDescription;
         private System.Windows.Forms.Label lblVersionValue;
+        private System.Windows.Forms.Timer timerUntilAction;
     }
 }
 
