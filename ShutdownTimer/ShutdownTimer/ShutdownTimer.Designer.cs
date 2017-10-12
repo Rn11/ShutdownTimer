@@ -47,20 +47,21 @@
             this.btnSoftRestart = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.grpShutdown = new System.Windows.Forms.GroupBox();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.grpPowersave = new System.Windows.Forms.GroupBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.grpReboot = new System.Windows.Forms.GroupBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.grpLock = new System.Windows.Forms.GroupBox();
             this.chkTimed = new System.Windows.Forms.CheckBox();
             this.chkForce = new System.Windows.Forms.CheckBox();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.lblTimeLeftDescription = new System.Windows.Forms.Label();
+            this.lblTimeLeftValue = new System.Windows.Forms.Label();
+            this.lblVersionDescription = new System.Windows.Forms.Label();
+            this.lblVersionValue = new System.Windows.Forms.Label();
             this.grpInput.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.grpShutdown.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.grpPowersave.SuspendLayout();
             this.panel4.SuspendLayout();
             this.grpReboot.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -69,7 +70,8 @@
             // 
             // grpInput
             // 
-            this.grpInput.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.grpInput.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.grpInput.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.grpInput.Controls.Add(this.txtSeconds);
@@ -81,7 +83,7 @@
             this.grpInput.Enabled = false;
             this.grpInput.Location = new System.Drawing.Point(3, 3);
             this.grpInput.Name = "grpInput";
-            this.grpInput.Size = new System.Drawing.Size(184, 107);
+            this.grpInput.Size = new System.Drawing.Size(156, 95);
             this.grpInput.TabIndex = 0;
             this.grpInput.TabStop = false;
             this.grpInput.Text = "Zeiteingabe";
@@ -92,7 +94,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSeconds.Location = new System.Drawing.Point(71, 68);
             this.txtSeconds.Name = "txtSeconds";
-            this.txtSeconds.Size = new System.Drawing.Size(28, 20);
+            this.txtSeconds.Size = new System.Drawing.Size(71, 20);
             this.txtSeconds.TabIndex = 5;
             // 
             // txtMinutes
@@ -101,7 +103,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtMinutes.Location = new System.Drawing.Point(71, 42);
             this.txtMinutes.Name = "txtMinutes";
-            this.txtMinutes.Size = new System.Drawing.Size(28, 20);
+            this.txtMinutes.Size = new System.Drawing.Size(71, 20);
             this.txtMinutes.TabIndex = 4;
             // 
             // txtHours
@@ -110,7 +112,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtHours.Location = new System.Drawing.Point(71, 16);
             this.txtHours.Name = "txtHours";
-            this.txtHours.Size = new System.Drawing.Size(28, 20);
+            this.txtHours.Size = new System.Drawing.Size(71, 20);
             this.txtHours.TabIndex = 3;
             // 
             // lblSeconds
@@ -168,9 +170,9 @@
             // 
             this.btnHibernate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnHibernate.Location = new System.Drawing.Point(6, 51);
+            this.btnHibernate.Location = new System.Drawing.Point(6, 115);
             this.btnHibernate.Name = "btnHibernate";
-            this.btnHibernate.Size = new System.Drawing.Size(181, 26);
+            this.btnHibernate.Size = new System.Drawing.Size(170, 26);
             this.btnHibernate.TabIndex = 4;
             this.btnHibernate.Text = "Ruhezustand";
             this.btnHibernate.UseVisualStyleBackColor = true;
@@ -180,9 +182,9 @@
             // 
             this.btnStandby.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnStandby.Location = new System.Drawing.Point(6, 19);
+            this.btnStandby.Location = new System.Drawing.Point(6, 83);
             this.btnStandby.Name = "btnStandby";
-            this.btnStandby.Size = new System.Drawing.Size(181, 26);
+            this.btnStandby.Size = new System.Drawing.Size(170, 26);
             this.btnStandby.TabIndex = 5;
             this.btnStandby.Text = "Energiesparmodus";
             this.btnStandby.UseVisualStyleBackColor = true;
@@ -194,7 +196,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRestart.Location = new System.Drawing.Point(6, 19);
             this.btnRestart.Name = "btnRestart";
-            this.btnRestart.Size = new System.Drawing.Size(175, 26);
+            this.btnRestart.Size = new System.Drawing.Size(170, 26);
             this.btnRestart.TabIndex = 6;
             this.btnRestart.Text = "Neustart";
             this.btnRestart.UseVisualStyleBackColor = true;
@@ -206,7 +208,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnLogoff.Location = new System.Drawing.Point(6, 19);
             this.btnLogoff.Name = "btnLogoff";
-            this.btnLogoff.Size = new System.Drawing.Size(181, 26);
+            this.btnLogoff.Size = new System.Drawing.Size(144, 26);
             this.btnLogoff.TabIndex = 7;
             this.btnLogoff.Text = "Abmelden";
             this.btnLogoff.UseVisualStyleBackColor = true;
@@ -218,7 +220,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnLock.Location = new System.Drawing.Point(6, 51);
             this.btnLock.Name = "btnLock";
-            this.btnLock.Size = new System.Drawing.Size(181, 26);
+            this.btnLock.Size = new System.Drawing.Size(144, 26);
             this.btnLock.TabIndex = 8;
             this.btnLock.Text = "Sperren";
             this.btnLock.UseVisualStyleBackColor = true;
@@ -226,11 +228,9 @@
             // 
             // btnExit
             // 
-            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExit.Location = new System.Drawing.Point(218, 212);
+            this.btnExit.Location = new System.Drawing.Point(276, 340);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(190, 26);
+            this.btnExit.Size = new System.Drawing.Size(101, 25);
             this.btnExit.TabIndex = 9;
             this.btnExit.Text = "Beenden";
             this.btnExit.UseVisualStyleBackColor = true;
@@ -238,14 +238,11 @@
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel1.Controls.Add(this.grpInput);
-            this.panel1.Location = new System.Drawing.Point(12, 12);
+            this.panel1.Location = new System.Drawing.Point(218, 58);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(193, 113);
+            this.panel1.Size = new System.Drawing.Size(162, 103);
             this.panel1.TabIndex = 10;
             // 
             // btnSoftRestart
@@ -254,7 +251,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSoftRestart.Location = new System.Drawing.Point(6, 51);
             this.btnSoftRestart.Name = "btnSoftRestart";
-            this.btnSoftRestart.Size = new System.Drawing.Size(175, 38);
+            this.btnSoftRestart.Size = new System.Drawing.Size(170, 38);
             this.btnSoftRestart.TabIndex = 10;
             this.btnSoftRestart.Text = "Neustart && Sitzung wiederherstellen";
             this.btnSoftRestart.UseVisualStyleBackColor = true;
@@ -263,9 +260,9 @@
             // panel2
             // 
             this.panel2.Controls.Add(this.grpShutdown);
-            this.panel2.Location = new System.Drawing.Point(12, 178);
+            this.panel2.Location = new System.Drawing.Point(12, 12);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(193, 90);
+            this.panel2.Size = new System.Drawing.Size(193, 157);
             this.panel2.TabIndex = 11;
             // 
             // grpShutdown
@@ -273,43 +270,23 @@
             this.grpShutdown.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.grpShutdown.Controls.Add(this.btnHibernate);
             this.grpShutdown.Controls.Add(this.btnShutdownAbort);
+            this.grpShutdown.Controls.Add(this.btnStandby);
             this.grpShutdown.Controls.Add(this.btnShutdown);
             this.grpShutdown.Location = new System.Drawing.Point(4, 4);
             this.grpShutdown.Name = "grpShutdown";
-            this.grpShutdown.Size = new System.Drawing.Size(182, 83);
+            this.grpShutdown.Size = new System.Drawing.Size(182, 150);
             this.grpShutdown.TabIndex = 0;
             this.grpShutdown.TabStop = false;
             this.grpShutdown.Text = "Herunterfahren";
             // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.grpPowersave);
-            this.panel3.Location = new System.Drawing.Point(211, 118);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(200, 88);
-            this.panel3.TabIndex = 12;
-            // 
-            // grpPowersave
-            // 
-            this.grpPowersave.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.grpPowersave.Controls.Add(this.btnHibernate);
-            this.grpPowersave.Controls.Add(this.btnStandby);
-            this.grpPowersave.Location = new System.Drawing.Point(4, 4);
-            this.grpPowersave.Name = "grpPowersave";
-            this.grpPowersave.Size = new System.Drawing.Size(193, 81);
-            this.grpPowersave.TabIndex = 0;
-            this.grpPowersave.TabStop = false;
-            this.grpPowersave.Text = "Energiesparen";
-            // 
             // panel4
             // 
             this.panel4.Controls.Add(this.grpReboot);
-            this.panel4.Location = new System.Drawing.Point(211, 12);
+            this.panel4.Location = new System.Drawing.Point(12, 175);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(200, 103);
+            this.panel4.Size = new System.Drawing.Size(193, 103);
             this.panel4.TabIndex = 13;
             // 
             // grpReboot
@@ -321,7 +298,7 @@
             this.grpReboot.Controls.Add(this.btnRestart);
             this.grpReboot.Location = new System.Drawing.Point(4, 3);
             this.grpReboot.Name = "grpReboot";
-            this.grpReboot.Size = new System.Drawing.Size(187, 97);
+            this.grpReboot.Size = new System.Drawing.Size(182, 97);
             this.grpReboot.TabIndex = 0;
             this.grpReboot.TabStop = false;
             this.grpReboot.Text = "Neustart";
@@ -329,9 +306,9 @@
             // panel5
             // 
             this.panel5.Controls.Add(this.grpLock);
-            this.panel5.Location = new System.Drawing.Point(417, 12);
+            this.panel5.Location = new System.Drawing.Point(218, 167);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(200, 91);
+            this.panel5.Size = new System.Drawing.Size(162, 92);
             this.panel5.TabIndex = 14;
             // 
             // grpLock
@@ -343,7 +320,7 @@
             this.grpLock.Controls.Add(this.btnLogoff);
             this.grpLock.Location = new System.Drawing.Point(3, 3);
             this.grpLock.Name = "grpLock";
-            this.grpLock.Size = new System.Drawing.Size(193, 85);
+            this.grpLock.Size = new System.Drawing.Size(156, 86);
             this.grpLock.TabIndex = 0;
             this.grpLock.TabStop = false;
             this.grpLock.Text = "Sperren";
@@ -351,7 +328,7 @@
             // chkTimed
             // 
             this.chkTimed.AutoSize = true;
-            this.chkTimed.Location = new System.Drawing.Point(12, 131);
+            this.chkTimed.Location = new System.Drawing.Point(218, 12);
             this.chkTimed.Name = "chkTimed";
             this.chkTimed.Size = new System.Drawing.Size(88, 17);
             this.chkTimed.TabIndex = 15;
@@ -362,24 +339,73 @@
             // chkForce
             // 
             this.chkForce.AutoSize = true;
-            this.chkForce.Location = new System.Drawing.Point(12, 155);
+            this.chkForce.Location = new System.Drawing.Point(218, 35);
             this.chkForce.Name = "chkForce";
             this.chkForce.Size = new System.Drawing.Size(148, 17);
             this.chkForce.TabIndex = 16;
             this.chkForce.Text = "Herunterfahren erzwingen";
             this.chkForce.UseVisualStyleBackColor = true;
             // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(12, 311);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(365, 23);
+            this.progressBar1.TabIndex = 17;
+            // 
+            // lblTimeLeftDescription
+            // 
+            this.lblTimeLeftDescription.AutoSize = true;
+            this.lblTimeLeftDescription.Location = new System.Drawing.Point(12, 292);
+            this.lblTimeLeftDescription.Name = "lblTimeLeftDescription";
+            this.lblTimeLeftDescription.Size = new System.Drawing.Size(97, 13);
+            this.lblTimeLeftDescription.TabIndex = 18;
+            this.lblTimeLeftDescription.Text = "Zeit bis zur Aktion: ";
+            // 
+            // lblTimeLeftValue
+            // 
+            this.lblTimeLeftValue.AutoSize = true;
+            this.lblTimeLeftValue.Location = new System.Drawing.Point(115, 292);
+            this.lblTimeLeftValue.Name = "lblTimeLeftValue";
+            this.lblTimeLeftValue.Size = new System.Drawing.Size(23, 13);
+            this.lblTimeLeftValue.TabIndex = 19;
+            this.lblTimeLeftValue.Text = "null";
+            // 
+            // lblVersionDescription
+            // 
+            this.lblVersionDescription.AutoSize = true;
+            this.lblVersionDescription.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.lblVersionDescription.Location = new System.Drawing.Point(13, 346);
+            this.lblVersionDescription.Name = "lblVersionDescription";
+            this.lblVersionDescription.Size = new System.Drawing.Size(45, 13);
+            this.lblVersionDescription.TabIndex = 20;
+            this.lblVersionDescription.Text = "Version:";
+            // 
+            // lblVersionValue
+            // 
+            this.lblVersionValue.AutoSize = true;
+            this.lblVersionValue.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.lblVersionValue.Location = new System.Drawing.Point(64, 346);
+            this.lblVersionValue.Name = "lblVersionValue";
+            this.lblVersionValue.Size = new System.Drawing.Size(31, 13);
+            this.lblVersionValue.TabIndex = 21;
+            this.lblVersionValue.Text = "0.0.0";
+            // 
             // FShutdownTimer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(671, 534);
+            this.ClientSize = new System.Drawing.Size(383, 377);
+            this.Controls.Add(this.lblVersionValue);
+            this.Controls.Add(this.lblVersionDescription);
+            this.Controls.Add(this.lblTimeLeftValue);
+            this.Controls.Add(this.lblTimeLeftDescription);
+            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.chkForce);
             this.Controls.Add(this.chkTimed);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.btnExit);
-            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -390,8 +416,6 @@
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.grpShutdown.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.grpPowersave.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.grpReboot.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
@@ -422,14 +446,17 @@
         private System.Windows.Forms.Button btnSoftRestart;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.GroupBox grpShutdown;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.GroupBox grpPowersave;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.GroupBox grpReboot;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.GroupBox grpLock;
         private System.Windows.Forms.CheckBox chkTimed;
         private System.Windows.Forms.CheckBox chkForce;
+        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Label lblTimeLeftDescription;
+        private System.Windows.Forms.Label lblTimeLeftValue;
+        private System.Windows.Forms.Label lblVersionDescription;
+        private System.Windows.Forms.Label lblVersionValue;
     }
 }
 

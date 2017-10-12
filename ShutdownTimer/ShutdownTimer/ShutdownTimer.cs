@@ -154,5 +154,7 @@ namespace ShutdownTimer
                 grpInput.Enabled = false;
             }
         }
+
+ 
     }
 }
